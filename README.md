@@ -152,17 +152,14 @@ export AIRFLOW_HOME=/mnt/c/Users/User/OneDrive/Documentos/ESTUDOS/Python/pyWeath
 
 ## Cronograma (Schedule)
 
-O pipeline ETL neste projeto é configurado para ser executado a cada 5 minutos, como definido no arquivo de configuração do DAG. Você pode ajustar o cronograma conforme necessário. No arquivo do DAG, o `schedule_interval` é configurado da seguinte maneira:
+O pipeline ETL neste projeto é configurado para ser executado diariamente às 09h, como definido no arquivo de configuração do DAG. No arquivo do DAG, o `schedule_interval` é configurado da seguinte maneira:
 
 ```python
-schedule_interval='*/5 * * * *',  # Executa a cada 5 minutos
+schedule_interval=- `0 9 * * *`: Executa diariamente às 9h.
 ```
-
-Se quiser que o pipeline seja executado em outro intervalo, pode alterar a string `schedule_interval` para o valor desejado. Exemplos:
-
 - `@daily`: Executa uma vez por dia.
 - `0 9 * * *`: Executa diariamente às 9h.
-- `*/10 * * * *`: Executa a cada 10 minutos.
+
 
 ## Acessando a Interface Web do Airflow
 

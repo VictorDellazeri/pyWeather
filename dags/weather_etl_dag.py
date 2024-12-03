@@ -1,4 +1,3 @@
-
 import sys
 import os
 
@@ -23,8 +22,7 @@ with DAG(
         'retries': 1,
     },
     description='ETL de dados meteorológicos',
-    #schedule_interval='0 9 * * *',  # Executa diariamente às 9h
-    schedule_interval='*/5 * * * *',  # Executa a cada 5 minutos
+    schedule_interval='0 9 * * *',  # Executa diariamente às 9h
     start_date=datetime(2024, 12, 1),
     catchup=False,
 ) as dag:
@@ -61,3 +59,4 @@ with DAG(
             'process': process_task,
             'load': load_task,
         }
+
